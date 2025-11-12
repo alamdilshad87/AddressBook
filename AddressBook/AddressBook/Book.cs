@@ -37,8 +37,16 @@ namespace AddressBook
 
         public void DisplayContacts()
         {
-            foreach (var c in contacts)
-                Console.WriteLine(c);
+            if (contacts.Count == 0)
+            {
+                Console.WriteLine("No contacts found.");
+                return;
+            }
+
+            Console.WriteLine("\nAll Contacts:\n");
+            foreach (var contact in contacts)
+                Console.WriteLine(contact+"\n");
+            
         }
     }
 }
