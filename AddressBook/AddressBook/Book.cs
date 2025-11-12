@@ -10,7 +10,7 @@ namespace AddressBook
     public class Book
     {
         private List<Contact> contacts = new List<Contact>();
-
+        public int ContactCount => contacts.Count;
         public void AddContact()
         {
             Contact contact = new Contact();
@@ -50,13 +50,13 @@ namespace AddressBook
         }
         public void EditContact(string firstName)
         {
-            Contact contact = contacts.FirstOrDefault(c => c.FirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase));
-
-            if (contact == null)
+            if (contacts.Count == 0)
             {
-                Console.WriteLine("Contact not found!");
+                Console.WriteLine("No contacts available to edit. Please add a contact first!");
                 return;
             }
+            Contact contact = contacts.FirstOrDefault(c => c.FirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase));
+
 
             Console.WriteLine($"\nEditing contact: {contact.FirstName} {contact.LastName}");
             Console.WriteLine("Which field would you like to edit?");

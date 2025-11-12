@@ -27,7 +27,14 @@ public class Program
                     book.DisplayContacts();
                     break;
                 case "3":
-                    book.EditContact();
+                    if(book.ContactCount==0)
+                    {
+                        Console.WriteLine("No contacts available to edit.");
+                        break;
+                    }
+                    Console.Write("Enter the First Name of the contact to edit: ");
+                    string name = Console.ReadLine();
+                    book.EditContact(name);
                     break;
                 case "4":
                     keepAdding = false;
