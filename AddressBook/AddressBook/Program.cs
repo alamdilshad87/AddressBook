@@ -1,8 +1,9 @@
 ﻿using System;
-public class AddressBook
+namespace AddressBook;
+public class Program
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Address Book Problem");
+        Console.WriteLine("Welcome to Address Book Problem");
     }
 }
