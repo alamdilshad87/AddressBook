@@ -12,7 +12,9 @@ public class Program
         {
             Console.WriteLine("\n1. Add New Contact");
             Console.WriteLine("2. Display All Contacts");
-            Console.WriteLine("3. Exit");
+            Console.WriteLine("3. Edit Contact");
+            Console.WriteLine("4. Exit");
+
             Console.Write("Enter your choice: ");
             string choice = Console.ReadLine();
 
@@ -25,6 +27,9 @@ public class Program
                     book.DisplayContacts();
                     break;
                 case "3":
+                    book.EditContact();
+                    break;
+                case "4":
                     keepAdding = false;
                     Console.WriteLine("\nThank you for using Address Book!");
                     break;

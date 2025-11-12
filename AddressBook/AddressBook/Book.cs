@@ -48,5 +48,54 @@ namespace AddressBook
                 Console.WriteLine(contact+"\n");
             
         }
+        public void EditContact(string firstName)
+        {
+            Contact contact = contacts.FirstOrDefault(c => c.FirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase));
+
+            if (contact == null)
+            {
+                Console.WriteLine("Contact not found!");
+                return;
+            }
+
+            Console.WriteLine($"\nEditing contact: {contact.FirstName} {contact.LastName}");
+            Console.WriteLine("Which field would you like to edit?");
+            Console.WriteLine("1. Address\n2. City\n3. State\n4. Zip\n5. Phone\n6. Email");
+            Console.Write("Enter your choice (1–6): ");
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    Console.Write("Enter new Address: ");
+                    contact.Address = Console.ReadLine();
+                    break;
+                case "2":
+                    Console.Write("Enter new City: ");
+                    contact.City = Console.ReadLine();
+                    break;
+                case "3":
+                    Console.Write("Enter new State: ");
+                    contact.State = Console.ReadLine();
+                    break;
+                case "4":
+                    Console.Write("Enter new Zip: ");
+                    contact.Zip = Console.ReadLine();
+                    break;
+                case "5":
+                    Console.Write("Enter new Phone Number: ");
+                    contact.PhoneNumber = Console.ReadLine();
+                    break;
+                case "6":
+                    Console.Write("Enter new Email: ");
+                    contact.Email = Console.ReadLine();
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. No changes made.");
+                    return;
+            }
+
+            Console.WriteLine("\nContact updated successfully!\n");
+        }
     }
 }
