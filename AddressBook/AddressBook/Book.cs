@@ -97,5 +97,22 @@ namespace AddressBook
 
             Console.WriteLine("\nContact updated successfully!\n");
         }
+        public void DeleteContact(string firstName)
+        {
+            if (contacts.Count == 0)
+            {
+                Console.WriteLine("No contacts available to delete. Please add a contact first!");
+                return;
+            }
+            Contact contact = contacts.FirstOrDefault(c =>c.FirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase));
+
+            if (contact == null)
+            {
+                Console.WriteLine("Contact not found!");
+                return;
+            }
+            contacts.Remove(contact);
+            Console.WriteLine($"Contact '{firstName} {contact.LastName}' deleted successfully!\n");
+        }
     }
 }

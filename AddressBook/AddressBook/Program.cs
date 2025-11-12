@@ -13,7 +13,8 @@ public class Program
             Console.WriteLine("\n1. Add New Contact");
             Console.WriteLine("2. Display All Contacts");
             Console.WriteLine("3. Edit Contact");
-            Console.WriteLine("4. Exit");
+            Console.WriteLine("4. Delete Contact");
+            Console.WriteLine("5. Exit");
 
             Console.Write("Enter your choice: ");
             string choice = Console.ReadLine();
@@ -37,6 +38,16 @@ public class Program
                     book.EditContact(name);
                     break;
                 case "4":
+                    if (book.ContactCount == 0)
+                    {
+                        Console.WriteLine("No contacts available to delete.");
+                        break;
+                    }
+                    Console.Write("Enter the First Name of the contact to delete: ");
+                    string deleteName = Console.ReadLine();
+                    book.DeleteContact(deleteName);
+                    break;
+                case "5":
                     keepAdding = false;
                     Console.WriteLine("\nThank you for using Address Book!");
                     break;
